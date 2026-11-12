@@ -6,6 +6,7 @@
   <meta name="description" content="Send a pre-order request or question to North Star Bakery and find our hours and location.">
   <title>North Star Bakery | Contact</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
@@ -27,38 +28,49 @@
 
     <section>
       <h2>Pre-Order and Inquiry Form</h2>
-      <form action="#" method="post">
+      <form id="contact-form" action="#" method="post" novalidate>
         <fieldset>
           <legend>Your Contact Information</legend>
           <p>
-            <label for="name">Full name (required)</label><br>
-            <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name">
+            <p>
+  <label for="name">Full name (required)</label><br>
+  <input type="text" id="name" name="name" required minlength="2" maxlength="60" autocomplete="name">
+  <span class="error" id="name-error"></span>
+</p>
           </p>
           <p>
-            <label for="email">Email address (required)</label><br>
-            <input type="email" id="email" name="email" required autocomplete="email">
+         <p>
+  <label for="email">Email address (required)</label><br>
+  <input type="email" id="email" name="email" required autocomplete="email">
+  <span class="error" id="email-error"></span>
+</p>
           </p>
         </fieldset>
 
         <fieldset>
           <legend>Your Request</legend>
           <p>
-            <label for="request-type">Request type (required)</label><br>
-            <select id="request-type" name="request_type" required>
-              <option value="">Choose one</option>
-              <option value="preorder">Pre-order</option>
-              <option value="question">General question</option>
-              <option value="event">Event or catering inquiry</option>
-            </select>
+            <p>
+  <label for="request-type">Request type (required)</label><br>
+  <select id="request-type" name="request_type" required>
+    <option value="">Choose one</option>
+    <option value="preorder">Pre-order</option>
+    <option value="question">General question</option>
+    <option value="event">Event or catering inquiry</option>
+  </select>
+  <span class="error" id="request-type-error"></span>
+</p>
           </p>
           <p>
             <label for="pickup-date">Pickup date (for pre-orders)</label><br>
             <input type="date" id="pickup-date" name="pickup_date">
           </p>
           <p>
-            <label for="details">Item details or question (required)</label><br>
-            <textarea id="details" name="details" rows="5" cols="40" required minlength="10" maxlength="500" placeholder="Example: 1 Signature Loaf and 6 dinner rolls"></textarea>
-          </p>
+            <p>
+  <label for="details">Item details or question (required)</label><br>
+  <textarea id="details" name="details" rows="5" cols="40" required minlength="10" maxlength="500" placeholder="Example: 1 Signature Loaf and 6 dinner rolls"></textarea>
+  <span class="error" id="details-error"></span>
+</p>
           <p>
             <label for="allergies">Allergy notes (if applicable)</label><br>
             <textarea id="allergies" name="allergies" rows="3" cols="40" maxlength="300" placeholder="Example: tree nut allergy"></textarea>
@@ -68,6 +80,7 @@
         <p>
           <button type="submit">Send Request</button>
           <button type="reset">Clear Form</button>
+          <p id="form-success" aria-live="polite"></p>
         </p>
       </form>
     </section>
