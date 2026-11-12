@@ -63,3 +63,71 @@ document.addEventListener("DOMContentLoaded", function() {
     displayFavorites();
 });
 
+
+function validateContactForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const requestType = document.getElementById("request-type");
+    const details = document.getElementById("details");
+
+    const nameError = document.getElementById("name-error");
+    const emailError = document.getElementById("email-error");
+    const requestError = document.getElementById("request-type-error");
+    const detailsError = document.getElementById("details-error");
+    const success = document.getElementById("form-success");
+
+    // Clear previous feedback
+    nameError.textContent = "";
+    emailError.textContent = "";
+    requestError.textContent = "";
+    detailsError.textContent = "";
+    success.textContent = "";
+
+    let isValid = true;
+
+    // Check name
+    if (name.value.trim().length < 2) {
+        nameError.textContent = "Please enter your name (at least 2 characters).";
+        isValid = false;
+    }
+
+    // Check email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email.value.trim())) {
+        emailError.textContent = "Please enter a valid email address.";
+        isValid = false;
+    }
+
+    // Check request type
+    if (requestType.value === "") {
+        requestError.textContent = "Please select a request type.";
+        isValid = false;
+    }
+
+    // Check message length
+    if (details.value.trim().length < 10) {
+        detailsError.textContent =
+            "Please enter at least 10 characters in your request.";
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
+    success.textContent =
+        "Your information passed validation. Thank you!";
+
+    // Demonstration only: no information is sent to the bakery.
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contact-form");
+
+    if (form) {
+        form.addEventListener("submit", validateContactForm);
+    }
+});
