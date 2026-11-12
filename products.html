@@ -6,6 +6,7 @@
   <meta name="description" content="Browse North Star Bakery breads, pastries, and cakes with pricing ranges.">
   <title>North Star Bakery | Products</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
@@ -31,6 +32,10 @@
       <p>Slow-fermented loaves with a crackly crust and a tender crumb.</p>
       <ul>
         <li><strong>Country Sourdough:</strong> a tangy, chewy everyday loaf. $7&ndash;$9</li>
+        <button type="button" class="favorite-button" data-product="Country Sourdough">
+    Add to Favorites
+  </button>
+</li>
         <li><strong>Rustic Honey Oat Loaf:</strong> soft, lightly sweet, and great for toast. $8&ndash;$10</li>
         <li><strong>Dinner Rolls (half dozen):</strong> pillowy and buttery. $6&ndash;$8</li>
       </ul>
@@ -41,6 +46,10 @@
       <p>Flaky, buttery treats made before sunrise.</p>
       <ul>
         <li><strong>Butter Croissant:</strong> layered and golden. $3&ndash;$4</li>
+        <button type="button" class="favorite-button" data-product="Butter Croissant">
+           Add to Favorites
+  </button>
+</li>
         <li><strong>Seasonal Fruit Danish:</strong> filled with local fruit. $4&ndash;$5</li>
         <li><strong>Cinnamon Morning Bun:</strong> sticky, spiced, and generous. $4&ndash;$5</li>
       </ul>
@@ -52,6 +61,10 @@
       <ul>
         <li><strong>Everyday Cake (6 inch):</strong> vanilla, chocolate, or lemon. $28&ndash;$38</li>
         <li><strong>Celebration Cake (9 inch):</strong> layered with buttercream. $45&ndash;$70</li>
+        <button type="button" class="favorite-button" data-product="Celebration Cake">
+    Add to Favorites
+  </button>
+</li>
         <li><strong>Event Dessert Boxes:</strong> assorted treats for groups. $40&ndash;$120</li>
       </ul>
     </section>
@@ -64,6 +77,15 @@
       </figure>
       <p>Our Signature Loaf is the one that started it all. Ask for it by name!</p>
     </section>
+    <section id="favorites">
+  <h2>Your Favorite Bakery Items</h2>
+
+  <p id="favorite-count" aria-live="polite">
+    You have 0 favorite items.
+  </p>
+
+  <ul id="favorite-list"></ul>
+</section>
   </main>
 
   <footer>
