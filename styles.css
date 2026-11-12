@@ -218,3 +218,16 @@ footer {
         max-width: 320px;
     }
 }
+
+.error {
+    display: block;
+    color: #B00020;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#form-success {
+    color: #287A36;
+    font-weight: bold;
+}
